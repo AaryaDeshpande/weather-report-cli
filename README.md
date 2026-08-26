@@ -1,9 +1,14 @@
-# Weather Report CLI
+# Weather Report App
 
-This is a simple command line weather report app for the AIPI 503 Week 5 API
-Calls challenge.
+This is a simple weather report project for the AIPI 503 Week 5 API and
+Streamlit challenges.
 
-The app asks the user for a US city, calls the OpenWeatherMap API, and prints:
+The project includes:
+
+- `get_weather.py`: a command line weather app
+- `app.py`: a Streamlit weather app
+
+Both versions ask the user for a US city, call the OpenWeatherMap API, and show:
 
 - Temperature in Celsius
 - Humidity
@@ -29,7 +34,7 @@ Open `.env` and replace the example value with your OpenWeatherMap API key:
 OPENWEATHER_API_KEY=your_api_key_here
 ```
 
-## Run
+## Run the Command Line App
 
 ```bash
 python3 get_weather.py
@@ -45,6 +50,14 @@ Temperature: 25.4 C
 Humidity: 61%
 Description: Clear Sky
 ```
+
+## Run the Streamlit App
+
+```bash
+streamlit run app.py
+```
+
+Then enter a city in the text box and click **Get Weather**.
 
 ## Notes
 

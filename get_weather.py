@@ -8,11 +8,10 @@ load_dotenv()
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 
-def get_weather(city):
+def get_weather_data(city):
     """Fetch weather data for a city from OpenWeatherMap."""
     if not API_KEY:
-        print("Missing OPENWEATHER_API_KEY. Add it to a .env file first.")
-        return
+        raise ValueError("Missing OPENWEATHER_API_KEY. Add it to a .env file first.")
 
     url = "https://api.openweathermap.org/data/2.5/weather"
     params = {
@@ -26,20 +25,30 @@ def get_weather(city):
 
     if response.status_code != 200:
         message = data.get("message", "Unable to fetch weather data.")
-        print(f"Weather lookup failed: {message}")
-        return
+        raise ValueError(f"Weather lookup failed: {message}")
 
-    city_name = data["name"]
-    temp_celsius = data["main"]["temp"]
-    humidity = data["main"]["humidity"]
-    description = data["weather"][0]["description"]
+    return {
+        "city": data["name"],
+        "temperature": data["main"]["temp"],
+        "humidity": data["main"]["humidity"],
+        "description": data["weather"][0]["description"],
+    }
+
+
+def print_weather_report(city):
+    """Print a simple weather report to the command line."""
+    weather = get_weather_data(city)
 
     print()
-    print(f"Weather report for {city_name}")
-    print(f"Temperature: {temp_celsius} C")
-    print(f"Humidity: {humidity}%")
-    print(f"Description: {description.title()}")
+    print(f"Weather report for {weather['city']}")
+    print(f"Temperature: {weather['temperature']} C")
+    print(f"Humidity: {weather['humidity']}%")
+    print(f"Description: {weather['description'].title()}")
 
 
-city = input("Enter a US city: ")
-get_weather(city)
+if __name__ == "__main__":
+    city = input("Enter a US city: ")
+    try:
+        print_weather_report(city)
+    except ValueError as error:
+        print(error)
