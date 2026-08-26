@@ -1,3 +1,13 @@
+---
+title: Weather Report App
+emoji: W
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+app_file: streamlit_app.py
+pinned: false
+---
+
 # Weather Report App
 
 This is a simple weather report project for the AIPI 503 Week 5 API and
