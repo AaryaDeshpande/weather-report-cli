@@ -1,13 +1,3 @@
----
-title: Weather Report App
-emoji: 🌤️
-colorFrom: blue
-colorTo: indigo
-sdk: streamlit
-app_file: app.py
-pinned: false
----
-
 # Weather Report App
 
 This is a simple weather report project for the AIPI 503 Week 5 API and
@@ -26,6 +16,12 @@ Both versions ask the user for a US city, call the OpenWeatherMap API, and show:
 - Weather description
 
 ## Setup
+
+Python version used:
+
+```text
+Python 3.14.4
+```
 
 Install the required packages:
 
@@ -80,11 +76,17 @@ Deploy this GitHub repository on Streamlit Community Cloud:
 4. Use `app.py` as the main file path
 5. Add this app secret:
 
-```text
-OPENWEATHER_API_KEY=your_api_key_here
+```toml
+OPENWEATHER_API_KEY = "your_api_key_here"
 ```
 
 Streamlit Cloud will run `app.py` as the web app.
+
+Live app:
+
+```text
+https://weather-report-cli-kqrj6ywwq2okp9jd9obakc.streamlit.app/
+```
 
 ## Notes
 
