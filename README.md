@@ -7,6 +7,7 @@ The project includes:
 
 - `get_weather.py`: a command line weather app
 - `app.py`: a Streamlit weather app
+- `streamlit_app.py`: the Hugging Face Spaces entry point
 
 Both versions ask the user for a US city, call the OpenWeatherMap API, and show:
 
@@ -58,6 +59,18 @@ streamlit run app.py
 ```
 
 Then enter a city in the text box and click **Get Weather**.
+
+## Deploy on Hugging Face Spaces
+
+Create a new Hugging Face Space with the **Streamlit** SDK.
+
+In the Space settings, add this repository secret:
+
+```text
+OPENWEATHER_API_KEY=your_api_key_here
+```
+
+Hugging Face will run `streamlit_app.py` automatically.
 
 ## Notes
 
