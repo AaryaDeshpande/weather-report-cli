@@ -1,6 +1,6 @@
 ---
 title: Weather Report App
-emoji: W
+emoji: 🌤️
 colorFrom: blue
 colorTo: indigo
 sdk: streamlit
